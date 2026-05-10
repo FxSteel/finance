@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Finanza - Control de Finanzas",
     description: "Gestiona tus finanzas en pareja",
-    images: [{ url: "/og-image.png", width: 1200, height: 630 }],
+    images: [{ url: "/logo-meta.png", width: 1200, height: 1200 }],
   },
   icons: {
     icon: [
