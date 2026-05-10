@@ -12,7 +12,11 @@ export const metadata: Metadata = {
   title: "Finanza - Control de Finanzas",
   description: "Gestiona tus finanzas en pareja",
   icons: {
-    icon: "/finanza-brand/logos/finanza-favicon.svg",
+    icon: [
+      { url: "/favicon.png", sizes: "32x32", type: "image/png" },
+      { url: "/icon-192.png", sizes: "192x192", type: "image/png" },
+    ],
+    apple: "/apple-touch-icon.png",
   },
 };
 
