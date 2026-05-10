@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <title>Finanza Logo - Dark</title>
+  <desc>Logo principal de Finanza en variante oscura</desc>
+  <rect width="200" height="200" rx="32" fill="#0A0A0B"/>
+  <rect x="48" y="115" width="20" height="40" rx="3" fill="#3D3D42"/>
+  <rect x="78" y="90" width="20" height="65" rx="3" fill="#6B6B73"/>
+  <rect x="108" y="55" width="20" height="100" rx="3" fill="#FAFAFA"/>
+  <circle cx="118" cy="40" r="6" fill="#FAFAFA"/>
+</svg>

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 110 130" width="110" height="130">
+  <title>Finanza Logomark</title>
+  <desc>Símbolo de Finanza sin contenedor</desc>
+  <rect x="0" y="75" width="20" height="40" rx="3" fill="currentColor" opacity="0.4"/>
+  <rect x="30" y="50" width="20" height="65" rx="3" fill="currentColor" opacity="0.65"/>
+  <rect x="60" y="15" width="20" height="100" rx="3" fill="currentColor"/>
+  <circle cx="70" cy="0" r="6" fill="currentColor" transform="translate(0, 5)"/>
+</svg>
