@@ -11,6 +11,12 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "Finanza - Control de Finanzas",
   description: "Gestiona tus finanzas en pareja",
+  metadataBase: new URL("https://finance-sepia-five.vercel.app"),
+  openGraph: {
+    title: "Finanza - Control de Finanzas",
+    description: "Gestiona tus finanzas en pareja",
+    images: [{ url: "/og-image.png", width: 1200, height: 630 }],
+  },
   icons: {
     icon: [
       { url: "/favicon.png", sizes: "32x32", type: "image/png" },
