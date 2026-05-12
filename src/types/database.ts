@@ -162,6 +162,7 @@ export type Database = {
         Update: {
           is_paid?: boolean;
           paid_at?: string | null;
+          due_date?: string;
         };
         Relationships: [];
       };
