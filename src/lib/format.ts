@@ -13,9 +13,10 @@ export function formatCurrency(amount: number, currency: "CLP" | "USD" = "CLP"):
 }
 
 export function formatDate(date: string): string {
+  const [y, m, d] = date.split("T")[0].split("-").map(Number);
   return new Intl.DateTimeFormat("es-CL", {
     day: "2-digit",
     month: "short",
     year: "numeric",
-  }).format(new Date(date));
+  }).format(new Date(y, m - 1, d));
 }

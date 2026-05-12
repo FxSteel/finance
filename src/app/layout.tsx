@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { Toaster } from "sonner";
 import "./globals.css";
 
 const inter = Inter({
@@ -33,7 +34,25 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es" className={`${inter.variable} h-full`}>
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        {children}
+        <Toaster
+          theme="dark"
+          position="bottom-right"
+          toastOptions={{
+            style: {
+              background: "#1F1F23",
+              border: "1px solid rgba(250,250,250,0.08)",
+              color: "#FAFAF5",
+            },
+            classNames: {
+              success: "[&_[data-icon]]:text-[#2D8659]",
+              error: "[&_[data-icon]]:text-[#B83A3A]",
+              warning: "[&_[data-icon]]:text-[#C4A876]",
+            },
+          }}
+        />
+      </body>
     </html>
   );
 }

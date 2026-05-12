@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 import { createClient } from "@/lib/supabase/client";
 import { formatCurrency, formatDate } from "@/lib/format";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -10,8 +11,6 @@ import {
   TrendingDown,
   Clock,
   CreditCard,
-  ArrowUpRight,
-  ArrowDownRight,
   ArrowUpDown,
 } from "lucide-react";
 import type { Transaction, InstallmentPayment } from "@/types/database";
@@ -21,6 +20,7 @@ type InstallmentWithTransaction = InstallmentPayment & {
 };
 
 export default function DashboardPage() {
+  const router = useRouter();
   const [monthIncome, setMonthIncome] = useState(0);
   const [monthExpenses, setMonthExpenses] = useState(0);
   const [pendingPayments, setPendingPayments] = useState<InstallmentWithTransaction[]>([]);
@@ -61,7 +61,7 @@ export default function DashboardPage() {
         .from("transactions")
         .select("*")
         .order("date", { ascending: false })
-        .limit(8),
+        .limit(10),
     ]);
 
     const totalIncome = (incomeRes.data ?? []).reduce((sum, t) => sum + t.amount, 0);
@@ -174,9 +174,12 @@ export default function DashboardPage() {
                     className="flex items-center justify-between p-3 rounded-lg bg-[rgba(250,250,250,0.04)]"
                   >
                     <div>
-                      <p className="text-sm font-medium text-paper">
+                      <button
+                        onClick={() => router.push(`/transactions?detail=${payment.transaction_id}`)}
+                        className="text-sm font-medium text-paper hover:text-indigo transition-colors cursor-pointer text-left"
+                      >
                         {payment.transactions.description}
-                      </p>
+                      </button>
                       <p className="text-xs text-steel mt-0.5">
                         Cuota {payment.installment_number} &middot; Vence{" "}
                         {formatDate(payment.due_date)}
@@ -224,15 +227,18 @@ export default function DashboardPage() {
                         }`}
                       >
                         {tx.type === "income" ? (
-                          <ArrowUpRight className="w-4 h-4 text-income" />
+                          <TrendingUp className="w-4 h-4 text-income" />
                         ) : (
-                          <ArrowDownRight className="w-4 h-4 text-expense" />
+                          <TrendingDown className="w-4 h-4 text-expense" />
                         )}
                       </div>
                       <div>
-                        <p className="text-sm font-medium text-paper">
+                        <button
+                          onClick={() => router.push(`/transactions?detail=${tx.id}`)}
+                          className="text-sm font-medium text-paper hover:text-indigo transition-colors cursor-pointer text-left"
+                        >
                           {tx.description}
-                        </p>
+                        </button>
                         <p className="text-xs text-steel mt-0.5">
                           {formatDate(tx.date)}
                         </p>
